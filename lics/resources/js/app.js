@@ -20,13 +20,13 @@ app.component('example-component', ExampleComponent);
 
 app.mount('#app');
 
-const Cliente = createApp({});
+const Card = createApp({});
 
-import ClienteComponent from './components/Clientes.vue';
+import CardComponent from './components/Cards.vue';
 
-Cliente.component('cliente-component', ClienteComponent);
+Card.component('card-component', CardComponent);
 
-Cliente.mount('#cliente-app');
+Card.mount('#card-app');
 
 
 /**

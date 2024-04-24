@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+use App\Http\Controllers\CrudController;
 
+Route::get('/', [CrudController::class, 'index']);
+Route::get('/card', [CrudController::class, 'Card']);
 
-Route::get('/', function () {
+// Route::get('/clientes/{id?}', function ($id) {
 
-    $dados = ['nome' => 'João', 'idade' => 30];
+//     return view('clientes', ['id' => $id]);
+// });
+// Route::get('/card', function () {
 
-    return view('welcome', compact('dados'));
-});
-
-Route::get('/clientes/{id?}', function ($id) {
-
-    return view('clientes', ['id' => $id]);
-});
+//     return view('Card');
+// });

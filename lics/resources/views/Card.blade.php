@@ -9,8 +9,8 @@
 
     </head>
     <body>
-            <div id="cliente-app">
-                <cliente-component :id="{{$id}}" > </cliente-component>
+            <div id="card-app">
+                <card-component > </card-component>
             </div>
     </body>
 </html>

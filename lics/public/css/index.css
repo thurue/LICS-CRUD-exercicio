@@ -7,6 +7,12 @@
     font-size: 3rem;
 }
 
+.header li a {
+    color: aliceblue;
+    text-decoration: none;
+
+}
+
 .header {
     color: aliceblue;
     background-color: rgb(50, 58, 58);
@@ -34,7 +40,7 @@
     text-shadow: 0px 0px 50px rgb(255, 255, 255);
     scale: 1.1;
 
-    cursor:pointer;
+    cursor: pointer;
 
 }
 
