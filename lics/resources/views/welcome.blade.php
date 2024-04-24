@@ -16,9 +16,11 @@
         <link rel="stylesheet" href="../css/index.css">
            --}}
     </head>
-    <body class="antialiased">
+    <body>
         <div id="app">
+
             <Example-component :dados="{{ json_encode($dados) }}"></Example-component>
+            
         </div>
     </body>
 </html>

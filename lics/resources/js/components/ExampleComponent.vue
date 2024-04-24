@@ -7,6 +7,10 @@
             dados: {
                 type: Object,
                 required: true
+            },
+            id: {
+                type: Object,
+                required: true
             }
         }
     }
@@ -15,13 +19,13 @@
 
   
     <script setup> 
-
     import Header from './Header.vue'
     </script>
 
 <template>
     <Header></Header>
     <h1>essa é a home</h1>
-  <p>{{ dados.idade }} </p>
+  <p v-if="dados.idade">{{ dados.idade }} </p>
+  <p>{{ id }} </p>
 </template>
 

@@ -1,5 +1,13 @@
 <script setup>
 </script>
 <template>
-    <h1>esse é o header</h1>
+    <div class="header">
+
+        <h1>CRUD</h1>
+        <ul class="options-nav">
+            <li> CARDS </li>
+            <li> TABLE </li>
+            <li> CLIENTES </li>
+        </ul>
+    </div>
 </template>

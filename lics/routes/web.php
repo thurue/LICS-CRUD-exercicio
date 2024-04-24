@@ -21,3 +21,8 @@ Route::get('/', function () {
 
     return view('welcome', compact('dados'));
 });
+
+Route::get('/clientes/{id?}', function ($id) {
+
+    return view('clientes', ['id' => $id]);
+});

@@ -3,8 +3,6 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-import './bootstrap';
 import '../css/app.css'
 import '../../public/css/index.css'
 import { createApp } from 'vue';
@@ -19,6 +17,17 @@ const app = createApp({});
 import ExampleComponent from './components/ExampleComponent.vue';
 
 app.component('example-component', ExampleComponent);
+
+app.mount('#app');
+
+const Cliente = createApp({});
+
+import ClienteComponent from './components/Clientes.vue';
+
+Cliente.component('cliente-component', ClienteComponent);
+
+Cliente.mount('#cliente-app');
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -37,5 +46,3 @@ app.component('example-component', ExampleComponent);
  * an "id" attribute of "app". This element is included with the "auth"
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
-
-app.mount('#app');
