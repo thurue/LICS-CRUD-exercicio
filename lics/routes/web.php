@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CrudController;
 
-Route::get('/', [CrudController::class, 'index']);
 Route::get('/card', [CrudController::class, 'Card']);
+Route::get('/add', [CrudController::class, 'add']);
+Route::get('/', [CrudController::class, 'index']);
+Route::post('/licitacoes', [CrudController::class, 'store']);
 
 // Route::get('/clientes/{id?}', function ($id) {
 

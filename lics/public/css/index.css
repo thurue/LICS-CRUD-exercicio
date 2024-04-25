@@ -4,6 +4,10 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    background-color: #002e34;
+}
+
 .header h1 {
     font-size: 3rem;
 }
@@ -56,7 +60,9 @@
 
 
 table {
-    width: 100%;
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
     border-collapse: collapse;
     border-radius: 8px;
     overflow: hidden;
@@ -118,4 +124,96 @@ tr:hover {
     /* background-color: #f0f0f0; */
 
     /* Cinza ainda mais claro */
+}
+
+
+
+/* class do componente adicionar */
+#add-lisc h1 {
+    margin: 2rem;
+    color: aliceblue;
+    text-align: center;
+}
+
+.form-add {
+    margin: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+
+
+    width: 30%;
+    padding: 5rem;
+    border-radius: 4rem;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.31);
+}
+
+.form-group {
+    font-size: 1.5rem;
+    color: aliceblue;
+    text-align: center;
+    width: 30rem;
+
+    display: flex;
+    gap: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-group input,
+.form-group select {
+    color: rgb(183, 205, 210);
+    font-size: 1.5rem;
+    width: 50%;
+
+    background-color: none;
+    border: none;
+    border-bottom: 1px solid black;
+    /* ou a cor desejada */
+    outline: none;
+    /* remove a borda ao focar */
+    background-color: transparent;
+    /* torna o fundo transparente */
+
+    font-weight: 800
+}
+
+.form-group select option {
+    color: black;
+    font-weight: 800
+}
+
+.form-group label {
+    width: 70%;
+    text-align: end;
+
+    font-weight: 900
+}
+
+.form-add button {
+
+
+    font-size: 1.5rem;
+    font-weight: 800;
+    width: 50%;
+    height: 3rem;
+    border-radius: .5rem;
+
+    border: none;
+    background-color: transparent;
+
+    transition: all .4s;
+    background-color: #005863;
+    color: aliceblue;
+}
+
+.form-add button:hover {
+    scale: 1.2;
+}
+
+.form-add button:active {
+    scale: .9;
 }

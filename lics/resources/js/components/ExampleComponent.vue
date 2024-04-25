@@ -33,7 +33,6 @@
             <th>id_lic</th>
             <th>nu_fase</th>
             <th>nu_edital</th>
-            <th>id_lic</th>
             <th>modalidade</th>
             <th>data_abertura</th>
             <th>nome_licitador</th>
@@ -46,14 +45,17 @@
     <tbody>
         <tr v-for="(dado, index) in dados" :key="index">
             <td>{{dado.id_lic}}</td>
-            <td>{{dado.nu_fase}}</td>
+            <td v-if="dado.nu_fase == -1">edicao</td>
+            <td v-if="dado.nu_fase == 0">descartado</td>
+            <td v-if="dado.nu_fase == 1">processada</td>
             <td>{{dado.nu_edital}}</td>
-            <td>{{dado.id_lic}}</td>
             <td>{{dado.modalidade}}</td>
             <td>{{dado.data_abertura}}</td>
             <td>{{dado.nome_licitador}}</td>
             <td>{{dado.cnpj_licitador}}</td>
-            <td>{{dado.prioridade}}</td>
+            <td v-if="dado.prioridade == 1">baixa</td>
+            <td v-if="dado.prioridade == 2">media</td>
+            <td v-if="dado.prioridade >= 3">alta</td>
             <td>{{dado.objeto}}</td>
             <td>{{dado.created_at}}</td>
         </tr>

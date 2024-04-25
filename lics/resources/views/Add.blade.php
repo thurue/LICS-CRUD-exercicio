@@ -9,8 +9,8 @@
 
     </head>
     <body>
-            <div id="card-app">
-                <card-component> </card-component>
+            <div id="add-app">
+                <add-component csrf-token="{{ csrf_token() }}" > </add-component>
             </div>
     </body>
 </html>
