@@ -1,6 +1,7 @@
 * {
     margin: 0px;
     padding: 0px;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .header h1 {
@@ -24,7 +25,6 @@
     justify-content: space-between;
     padding: 1rem 5rem;
 
-    font-family: 'Courier New', Courier, monospace;
 
 }
 
@@ -52,4 +52,70 @@
     flex-direction: row;
     gap: 1rem;
 
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #000;
+    background-color: #bde3ff;
+    /* Bordas pretas */
+}
+
+/* Estilo para as células do cabeçalho */
+th {
+    background-color: #f2f2f2;
+    background-color: #333;
+    /* Cinza pastel */
+    color: #333;
+    color: #dcdcdc;
+    /* Preto pastel */
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 2px solid #000;
+    /* Linha mais escura */
+    border-right: 1px solid #000;
+    /* Borda direita preta */
+}
+
+/* Estilo para as células do corpo */
+
+td {
+    padding: 8px 10px;
+    border-bottom: 1px solid #ddd;
+    /* Cinza claro */
+    color: #555;
+    /* Preto mais escuro */
+    border-right: 1px solid #000;
+    /* Borda direita preta */
+    transition: all .1s;
+
+    background-color: #55555500;
+
+    height: 2rem;
+}
+
+td:hover {
+    background-color: #ffffff;
+    scale: .95;
+    border-radius: .5rem;
+
+    cursor: pointer;
+}
+
+/* Estilo para as linhas ímpares */
+tr:nth-child(odd) {
+    background-color: #f9f9f988;
+    /* Cinza mais claro */
+}
+
+/* Estilo para as linhas ao passar o mouse */
+tr:hover {
+    /* background-color: #f0f0f0; */
+
+    /* Cinza ainda mais claro */
 }

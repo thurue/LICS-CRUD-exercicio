@@ -3,15 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Licitacoes;
 
 class CrudController extends Controller
 {
     public function index()
     {
 
-        $dados = ['nome' => 'João', 'idade' => 30];
+        $lics = Licitacoes::all();
 
-        return view('welcome', compact('dados'));
+        return view('welcome', ['lics' => $lics]);
     }
     public function Card()
     {

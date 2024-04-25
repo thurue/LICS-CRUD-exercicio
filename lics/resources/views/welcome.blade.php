@@ -18,9 +18,7 @@
     </head>
     <body>
         <div id="app">
-
-            <Example-component :dados="{{ json_encode($dados) }}"></Example-component>
-            
+            <Example-component :dados="{{json_encode($lics) }}"></Example-component>
         </div>
     </body>
 </html>
