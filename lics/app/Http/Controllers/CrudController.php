@@ -11,7 +11,6 @@ class CrudController extends Controller
 {
     public function index()
     {
-
         $lics = Licitacoes::all();
 
         return view('welcome', ['lics' => $lics]);

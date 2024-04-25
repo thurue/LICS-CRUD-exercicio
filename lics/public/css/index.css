@@ -2,10 +2,11 @@
     margin: 0px;
     padding: 0px;
     font-family: 'Courier New', Courier, monospace;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    background-color: #002e34;
+    background-color: #b6a5ff;
 }
 
 .header h1 {
@@ -20,7 +21,7 @@ body {
 
 .header {
     color: aliceblue;
-    background-color: rgb(50, 58, 58);
+    background-color: #9b8ef2;
 
     display: flex;
     flex-direction: row;
@@ -67,14 +68,14 @@ table {
     border-radius: 8px;
     overflow: hidden;
     border: 1px solid #000;
-    background-color: #bde3ff;
+    /* background-color: #bde3ff; */
     /* Bordas pretas */
 }
 
 /* Estilo para as células do cabeçalho */
 th {
-    background-color: #f2f2f2;
     background-color: #333;
+    background-color: #6e66b4;
     /* Cinza pastel */
     color: #333;
     color: #dcdcdc;
@@ -115,14 +116,17 @@ td:hover {
 
 /* Estilo para as linhas ímpares */
 tr:nth-child(odd) {
-    background-color: #f9f9f988;
+    background-color: #d0c3ec;
     /* Cinza mais claro */
 }
 
 /* Estilo para as linhas ao passar o mouse */
-tr:hover {
-    /* background-color: #f0f0f0; */
+tr {
+    background-color: #f1e2ff;
 
+}
+
+tr:hover {
     /* Cinza ainda mais claro */
 }
 
@@ -148,26 +152,27 @@ tr:hover {
     width: 30%;
     padding: 5rem;
     border-radius: 4rem;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.31);
 }
 
 .form-group {
     font-size: 1.5rem;
     color: aliceblue;
-    text-align: center;
+    /* text-align: center; */
     width: 30rem;
 
     display: flex;
     gap: 1rem;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
 }
 
+
+
 .form-group input,
 .form-group select {
-    color: rgb(183, 205, 210);
+    color: rgb(255, 255, 255);
     font-size: 1.5rem;
-    width: 50%;
+    width: 100%;
 
     background-color: none;
     border: none;
@@ -178,19 +183,23 @@ tr:hover {
     background-color: transparent;
     /* torna o fundo transparente */
 
-    font-weight: 800
+    font-weight: 500;
+    /* background-color: #005863; */
 }
 
 .form-group select option {
     color: black;
-    font-weight: 800
+    font-weight: 800;
+
+    background-color: rgb(232, 224, 250);
 }
 
 .form-group label {
     width: 70%;
-    text-align: end;
+    text-align: start;
 
-    font-weight: 900
+    font-weight: 900;
+
 }
 
 .form-add button {
