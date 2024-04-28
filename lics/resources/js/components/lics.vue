@@ -1,47 +1,24 @@
-    
     <script> 
-    
     export default {
-        delimiters: ['!{', '}'],
-        data() {
-        return {
-          form: {},
-        };
-      },
-          mounted() {
-              console.log('Component mounted.')
-          },
-          
-          props: {
-              dados: Array  // Defina o tipo de prop como um objeto
-          },
-    };
-        // export default {
-        //     delimiters: ['${{', '}}'],
-        // };
-        </script>;
+        mounted() {
+            console.log('Component mounted.')
+        },
+        props: {
+            dados: Array  // Defina o tipo de prop como um objeto
+        }
+    }
+
+    </script>
 
   
     <script setup> 
     import Header from './Header.vue'
-
- 
     </script>
 
 <template>
-    
-    <Header></Header>
-    <!-- <p v-for="(dado, index) in dados" :key="index"> 
-        {{ dado.id_lic }} -- 
-        {{ dado.nu_fase }} -- 
-        {{ dado.nu_edital }} -- 
-        {{ dado.id_lic }} -- 
-        {{ dado.modalidade }} -- 
-        {{ dado.modalidade }} -- 
-        {{ dado.nome_licitador }} -- 
-    </p> -->
+  <Header></Header>
 
-<table>
+  <table>
     <thead>
         <tr>
             <th>VIEW</th>
@@ -59,11 +36,7 @@
     </thead>
     <tbody>
         <tr v-for="(dado, index) in dados" :key="index">
-            <!-- <td><a href="/lics/{{$event -> dado.id_lic}}">lic</a></td> -->
-            <!-- <td><a href='/lics/{{$lics -> dado.id_lic}}'>lic</a></td> -->
-            <td><a v-bind:href="'/lics/' + dado.id_lic">lic</a></td>
-
-
+            <td><a href="/lics/{{$event -> dado.id_lic}}">lic</a></td>
             <td>{{dado.id_lic}}</td>
             <td v-if="dado.nu_fase == -1">edicao</td>
             <td v-if="dado.nu_fase == 0">descartado</td>
@@ -72,7 +45,7 @@
             <td>{{dado.modalidade}}</td>
             <td>{{dado.data_abertura}}</td>
             <td>{{dado.nome_licitador}}</td>
-            <td>!{dado.cnpj_licitador}</td>
+            <td>{{dado.cnpj_licitador}}</td>
             <td v-if="dado.prioridade == 1">baixa</td>
             <td v-if="dado.prioridade == 2">media</td>
             <td v-if="dado.prioridade >= 3">alta</td>

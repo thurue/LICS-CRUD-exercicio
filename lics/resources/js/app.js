@@ -5,13 +5,24 @@
  */
 import '../css/app.css'
 import '../../public/css/index.css'
-import { createApp } from 'vue';
+import { createApp, createRenderer } from 'vue';
+
+
+
 // lics/resources/js/app.js
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
  * registering components with the application instance so they are ready
  * to use in your application's views. An example is included for you.
- */
+//  */
+// new Vue({
+//     el: '#app',
+//     delimiters: ["${", "}"]
+// });
+
+
+
+
 const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
@@ -19,6 +30,7 @@ import ExampleComponent from './components/ExampleComponent.vue';
 app.component('example-component', ExampleComponent);
 
 app.mount('#app');
+
 
 const Card = createApp({});
 

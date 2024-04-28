@@ -40,4 +40,15 @@ class CrudController extends Controller
 
         return redirect('/');
     }
+    public function show($id_lic)
+    {
+
+        // $LicUni = Licitacoes::findOrFail($id_lic, ['id_lic']);
+        $licUni = Licitacoes::where('id_lic', $id_lic)->firstOrFail();
+
+
+        return view('Lics', ['licUni' => $licUni]);
+
+        // return redirect('Lics','/lics/' . $licUni->id_lic);
+    }
 }
