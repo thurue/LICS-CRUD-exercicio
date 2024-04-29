@@ -40,6 +40,16 @@ Card.component('card-component', CardComponent);
 
 Card.mount('#card-app');
 
+
+const lics = createApp({});
+
+import licComponent from './components/Lics.vue';
+
+lics.component('lic-component', licComponent);
+
+lics.mount('#lics-app');
+
+
 const Add = createApp({});
 
 import AddComponent from './components/Add.vue';
@@ -47,3 +57,4 @@ import AddComponent from './components/Add.vue';
 Add.component('add-component', AddComponent);
 
 Add.mount('#add-app');
+

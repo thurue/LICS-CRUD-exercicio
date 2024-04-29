@@ -3,10 +3,41 @@
     padding: 0px;
     font-family: 'Courier New', Courier, monospace;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 body {
-    background-color: #b6a5ff;
+    background-color: #ffffff;
+}
+
+.Container {
+    width: 85vw;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.adicionar {
+    cursor: pointer;
+    font-weight: 550;
+    color: #fcfeff;
+    padding: .5rem 1.5rem;
+    border-radius: .5rem;
+    background-color: #0f96e1;
+    display: inline-block;
+
+    transition: all .1s cubic-bezier(.8, 1.01, .57, .59);
+
+}
+
+.adicionar:hover {
+    scale: 105%;
 }
 
 .header h1 {
@@ -21,7 +52,7 @@ body {
 
 .header {
     color: aliceblue;
-    background-color: #9b8ef2;
+    background-color: #808080;
 
     display: flex;
     flex-direction: row;
@@ -59,83 +90,238 @@ body {
 
 }
 
+.titulo-pagina {}
+
+:root {
+    --color-border: 3px solid #e4e4e4;
+}
 
 table {
-    width: 80%;
-    margin: auto;
-    margin-top: 3rem;
-    border-collapse: collapse;
-    border-radius: 8px;
+    /* margin: auto; */
     overflow: hidden;
-    border: 1px solid #000;
-    /* background-color: #bde3ff; */
-    /* Bordas pretas */
+
+    /* width: 100%; */
+
+    border-radius: .3rem;
+
+    border-left: var(--color-border);
+    border-top: var(--color-border);
+}
+
+.olho-icone {
+    background-image: url(../img/pontinhos.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    transition: all .2s cubic-bezier(0, .49, 1, .49);
+    filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.486));
+}
+
+.olho-icone:hover {
+    scale: 1.2;
 }
 
 /* Estilo para as células do cabeçalho */
 th {
-    background-color: #333;
-    background-color: #6e66b4;
-    /* Cinza pastel */
+    font-weight: 670;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    text-align: center;
     color: #333;
-    color: #dcdcdc;
-    /* Preto pastel */
-    font-weight: bold;
-    padding: 10px;
-    text-align: left;
-    border-bottom: 2px solid #000;
-    /* Linha mais escura */
-    border-right: 1px solid #000;
-    /* Borda direita preta */
-}
 
-/* Estilo para as células do corpo */
+    padding: 10px;
+
+    border-bottom: var(--color-border);
+    border-right: var(--color-border);
+}
 
 td {
+    border-bottom: var(--color-border);
+    border-right: var(--color-border);
     padding: 8px 10px;
-    border-bottom: 1px solid #ddd;
-    /* Cinza claro */
-    color: #555;
-    /* Preto mais escuro */
-    border-right: 1px solid #000;
-    /* Borda direita preta */
     transition: all .1s;
+    margin: 0px;
 
-    background-color: #55555500;
-
-    height: 2rem;
+    color: #555;
+    text-align: center;
+    font-weight: 640;
+    font-size: 1.05rem;
 }
 
-td:hover {
-    background-color: #ffffff;
-    scale: .95;
+.prioridade p,
+.fase p {
+    text-align: center;
+    font-weight: 740;
+    font-size: 1.05rem;
+
+    margin: auto;
+    padding: 10px;
     border-radius: .5rem;
-
-    cursor: pointer;
 }
 
-/* Estilo para as linhas ímpares */
-tr:nth-child(odd) {
-    background-color: #d0c3ec;
-    /* Cinza mais claro */
+.pri-baixa p {
+    color: #229465;
+    background-color: #2294641f;
 }
 
-/* Estilo para as linhas ao passar o mouse */
+.pri-media p {
+    color: #0057c9;
+    background-color: #2500e01f;
+}
+
+.pri-alta p {
+    color: #ee6969;
+    background-color: #ee69691f;
+}
+
+.pri-edicao p {
+    color: #b39500;
+    background-color: #f7d00f1f;
+}
+
+.pri-descartado p {
+    color: #797979;
+    background-color: #7979791f;
+}
+
+.pri-processada p {
+    color: #744c3a;
+    background-color: #744c3a1f;
+}
+
+
+tr:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
 tr {
-    background-color: #f1e2ff;
+    background-color: #ffffff;
 
 }
 
-tr:hover {
-    /* Cinza ainda mais claro */
+.BTN-VER {
+    text-decoration: none;
+    margin: auto;
+    color: black;
+    font-weight: 800;
+    font-size: 1.5rem;
+    /* background-color: #f3c0f8; */
+    padding: .5rem 1rem;
+    border-radius: 1rem;
+
+
 }
+
+
+
+
+
 
 
 
 /* class do componente adicionar */
+
+
+:root {
+
+    --color-add {
+        color: #616161;
+    }
+
+}
+
+#add-lisc {
+    zoom: 200%;
+
+    width: 80%;
+
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 3rem;
+    gap: 3rem;
+
+    align-items: center;
+}
+
+
+.form-add {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+
+    margin: auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: .1rem;
+    /* background-color: #0057c9; */
+    height: 3rem;
+
+    /* align-items: center; */
+    justify-content: center;
+    width: 10rem;
+}
+
+.custom-select,
+.form-group input {
+
+    border-radius: .4rem;
+    padding: .3rem;
+    border: black solid 1px;
+
+    transition: border .1s;
+}
+
+.custom-select:hover {
+    cursor: pointer;
+}
+
+.custom-select:focus,
+.form-group input:focus {
+
+    border-radius: .4rem;
+    padding: .3rem;
+    border: black solid 3px;
+}
+
+.form-add-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.form-group-button {
+    height: 2rem;
+    border-radius: .4rem;
+    background-color: #0f96e1;
+    border: solid #087fbe 3px;
+
+    align-items: center;
+
+    color: aliceblue;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    transition: all .4s;
+
+}
+
+.form-group-button:hover {
+
+    cursor: pointer;
+    scale: 1.03;
+}
+
+/* 
 #add-lisc h1 {
     margin: 2rem;
-    color: aliceblue;
+    color: #616161;
     text-align: center;
 }
 
@@ -156,8 +342,8 @@ tr:hover {
 
 .form-group {
     font-size: 1.5rem;
-    color: aliceblue;
-    /* text-align: center; */
+    color: var(--color-add);
+
     width: 30rem;
 
     display: flex;
@@ -170,53 +356,49 @@ tr:hover {
 
 .form-group input,
 .form-group select {
-    color: rgb(255, 255, 255);
     font-size: 1.5rem;
     width: 100%;
 
     background-color: none;
     border: none;
     border-bottom: 1px solid black;
-    /* ou a cor desejada */
     outline: none;
-    /* remove a borda ao focar */
     background-color: transparent;
-    /* torna o fundo transparente */
 
     font-weight: 500;
-    /* background-color: #005863; */
+    color: var(--color-add);
 }
 
 .form-group select option {
-    color: black;
+    color: var(--color-add);
     font-weight: 800;
-
+    
     background-color: rgb(232, 224, 250);
 }
 
 .form-group label {
     width: 70%;
     text-align: start;
-
+    
     font-weight: 900;
-
+    
 }
 
 .form-add button {
-
-
+    
+    
     font-size: 1.5rem;
     font-weight: 800;
     width: 50%;
     height: 3rem;
     border-radius: .5rem;
-
+    
     border: none;
     background-color: transparent;
-
+    
     transition: all .4s;
     background-color: #005863;
-    color: aliceblue;
+    color: var(--color-add);
 }
 
 .form-add button:hover {
@@ -225,4 +407,4 @@ tr:hover {
 
 .form-add button:active {
     scale: .9;
-}
+} */

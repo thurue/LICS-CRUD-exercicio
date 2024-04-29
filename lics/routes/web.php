@@ -18,8 +18,8 @@ use App\Http\Controllers\CrudController;
 Route::get('/card', [CrudController::class, 'Card']);
 Route::get('/add', [CrudController::class, 'add']);
 Route::get('/', [CrudController::class, 'index']);
-Route::get('/lics/{id_lic}', [CrudController::class, 'show']);
 Route::post('/licitacoes', [CrudController::class, 'store']);
+Route::get('/lics/{id_lic}', [CrudController::class, 'show']);
 
 // Route::get('/clientes/{id?}', function ($id) {
 

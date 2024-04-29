@@ -20,6 +20,6 @@ export default {
 
 <template>
     <Header></Header>
-<div >view do vue</div>
+<div >view do vue eeeee</div>
 </template>
 

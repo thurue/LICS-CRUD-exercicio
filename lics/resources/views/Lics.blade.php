@@ -9,9 +9,8 @@
 
     </head>
     <body>
-            <div id="card-app">
-                {{$licUni}}
-                {{-- <card-component> </card-component> --}}
+            <div id="lics-app">
+                <lic-component :dados="{{json_encode($licUni) }}"> </lic-component>
             </div>
     </body>
 </html>
