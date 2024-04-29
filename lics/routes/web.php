@@ -21,6 +21,7 @@ Route::get('/', [CrudController::class, 'index']);
 Route::post('/licitacoes', [CrudController::class, 'store']);
 Route::get('/lics/{id_lic}', [CrudController::class, 'show']);
 
+Route::delete('/lics/{id_lic}', [CrudController::class, 'destroy']);
 // Route::get('/clientes/{id?}', function ($id) {
 
 //     return view('clientes', ['id' => $id]);

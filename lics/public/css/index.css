@@ -21,22 +21,60 @@ body {
     gap: 3rem;
     margin-top: 3rem;
     flex-wrap: wrap;
+
+    padding-bottom: 10rem;
 }
 
-.adicionar {
+/* estilo dos botoes */
+.btn {
     cursor: pointer;
     font-weight: 550;
     color: #fcfeff;
     padding: .5rem 1.5rem;
     border-radius: .5rem;
-    background-color: #0f96e1;
     display: inline-block;
 
     transition: all .1s cubic-bezier(.8, 1.01, .57, .59);
 
 }
 
-.adicionar:hover {
+.adicionar {
+    background-color: #0f96e1;
+}
+
+.apagar,
+.editar {
+    zoom: 120%;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+}
+
+.apagar {
+    background-color: #9e1616;
+    border: solid 3px #e4fd0000;
+    margin-left: 2rem;
+
+}
+
+.apagar:hover {
+    border: solid 3px #520606;
+}
+
+.editar {
+    background-color: #178b00;
+    border: solid 3px #0b440000;
+    zoom: 120%;
+
+}
+
+.editar:hover {
+    border: solid 3px #0b4400;
+}
+
+.btn:hover {
     scale: 105%;
 }
 
@@ -318,93 +356,41 @@ tr {
     scale: 1.03;
 }
 
-/* 
-#add-lisc h1 {
-    margin: 2rem;
-    color: #616161;
-    text-align: center;
+
+.desc-item-p {
+    display: inline-block;
 }
 
-.form-add {
-    margin: auto;
-    width: 100%;
 
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+/* DESCRICAO INDIVIDUAL */
+
+.titulo-info-individual {
+
+    display: inline-block;
+    border: solid rgba(0, 0, 0, 0.137) 1px;
+    padding: 7px 20px;
+    border-radius: 7px;
+    border-bottom: solid 2px #087fbe;
+
+    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.329);
+    zoom: 150%;
+
+    width: 60%;
+
+}
+
+.licitacao-individual {
+    flex-wrap: wrap;
     align-items: center;
-
-
-    width: 30%;
-    padding: 5rem;
-    border-radius: 4rem;
 }
 
-.form-group {
-    font-size: 1.5rem;
-    color: var(--color-add);
+.titulo-info-individual span {
 
-    width: 30rem;
+    color: #087fbe;
+    font-weight: 600;
 
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
-
-
-.form-group input,
-.form-group select {
-    font-size: 1.5rem;
-    width: 100%;
-
-    background-color: none;
-    border: none;
-    border-bottom: 1px solid black;
-    outline: none;
-    background-color: transparent;
-
-    font-weight: 500;
-    color: var(--color-add);
+.form-delete {
+    display: inline-block;
 }
-
-.form-group select option {
-    color: var(--color-add);
-    font-weight: 800;
-    
-    background-color: rgb(232, 224, 250);
-}
-
-.form-group label {
-    width: 70%;
-    text-align: start;
-    
-    font-weight: 900;
-    
-}
-
-.form-add button {
-    
-    
-    font-size: 1.5rem;
-    font-weight: 800;
-    width: 50%;
-    height: 3rem;
-    border-radius: .5rem;
-    
-    border: none;
-    background-color: transparent;
-    
-    transition: all .4s;
-    background-color: #005863;
-    color: var(--color-add);
-}
-
-.form-add button:hover {
-    scale: 1.02;
-}
-
-.form-add button:active {
-    scale: .9;
-} */

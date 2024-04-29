@@ -10,7 +10,9 @@
     </head>
     <body>
             <div id="lics-app">
-                <lic-component :dados="{{json_encode($licUni) }}"> </lic-component>
+                <lic-component             
+                delete-method="DELETE"
+                csrf-token="{{ csrf_token() }}" :dados="{{json_encode($licUni) }}"> </lic-component>
             </div>
     </body>
 </html>

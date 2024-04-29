@@ -51,4 +51,12 @@ class CrudController extends Controller
 
         // return redirect('Lics','/lics/' . $licUni->id_lic);
     }
+
+    public function destroy($id_lic)
+    {
+
+        $licUni = Licitacoes::where('id_lic', $id_lic)->delete();
+
+        return redirect('/')->with('msg', 'licitacao deletada com sucesso');
+    }
 }
