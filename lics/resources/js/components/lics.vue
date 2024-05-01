@@ -74,7 +74,7 @@
 
       <p class="fase pri-edicao titulo-info-individual" v-if="dados.nu_fase == -1">Fase do processo: <p class="desc-item-p">edicao</p></p>
       <p class="fase pri-descartado titulo-info-individual" v-if="dados.nu_fase == 0">Fase do processo: <p class="desc-item-p">descartado</p></p>
-      <p class="fase pri-processada" v-if="dados.nu_fase == 1">Fase do processo: <p class="desc-item-p">processada</p></p>
+      <p class="fase pri-processada  titulo-info-individual" v-if="dados.nu_fase == 1">Fase do processo: <p class="desc-item-p">processada</p></p>
       
       <p class="prioridade pri-baixa titulo-info-individual" v-if="dados.nu_fase == -1">Prioridade da licitação: <p class="desc-item-p">Baixa</p></p>
       <p class="prioridade pri-media titulo-info-individual" v-if="dados.nu_fase == 0">Prioridade da licitação: <p class="desc-item-p">Media</p></p>

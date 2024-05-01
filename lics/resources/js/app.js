@@ -57,4 +57,3 @@ import AddComponent from './components/Add.vue';
 Add.component('add-component', AddComponent);
 
 Add.mount('#add-app');
-

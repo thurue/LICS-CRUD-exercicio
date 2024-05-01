@@ -12,6 +12,190 @@ body {
     background-color: #ffffff;
 }
 
+.root {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+}
+
+/* estilo side-bar */
+.nav-sidebar {
+    background-color: #0165a9;
+
+    /* width: 10rem; */
+    height: 60%;
+    border-radius: 0px 60px 60px 0px;
+
+    left: 0px;
+
+    position: absolute;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    padding: 1rem 1rem;
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.171);
+}
+
+.nav-sidebar svg {
+    height: 3.5rem;
+
+    fill: #ffffff;
+    filter: drop-shadow(-10px 0px 10px rgba(0, 0, 0, 0.308));
+
+    transition: .4s all;
+
+    cursor: pointer;
+}
+
+.nav-sidebar svg:hover {
+
+    scale: 110%;
+
+}
+
+.side-bar {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+
+    flex-wrap: nowrap;
+
+    justify-content: center;
+    align-items: start;
+
+
+    background-color: #f2f2f2;
+    padding: 1rem 1rem 1rem 8rem;
+
+    border-radius: 0rem 60px 60px 0rem;
+
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.171);
+
+}
+
+.configurate-sidebar h3 {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.configurate-sidebar {
+    display: flex;
+
+    flex-direction: column;
+    gap: 1.1rem;
+
+    width: 15rem;
+
+}
+
+.modalidade-group {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+}
+
+.modalidade-group label {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    padding-left: 2rem;
+    margin-right: 15px;
+    font-size: 1.4rem;
+
+
+
+    align-items: center;
+}
+
+.modalidade-group label:before {
+    content: " ";
+    display: inline-block;
+
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 2rem;
+
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    background-color: rgb(229, 241, 247);
+    box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, 0.404), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+
+
+    transition: .4s all;
+    color: #ffffff;
+}
+
+.modalidade-group input:checked+label:before {
+
+    content: " ";
+    line-height: 1.4rem;
+
+    font-weight: 900;
+    text-align: center;
+
+    background-color: #0165a9;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    font-size: 12px;
+    color: #ffffff;
+
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.404), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+}
+
+input[type=checkbox] {
+    display: none;
+}
+
+/* .modalidade-group input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-size: 2rem;
+    padding: 0.1rem;
+    border: 0.25rem solid green;
+    border-radius: 0.5rem;
+
+
+}
+
+.modalidade-group input[type="checkbox"]::before {
+    content: "";
+    width: 1.4rem;
+    height: 1.4rem;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    transform: scale(0);
+    background-color: rgb(128, 0, 0);
+    border: 0.25rem solid rgb(0, 13, 128);
+}
+
+input[type="checkbox"]:checked::before {
+    content: "";
+    width: 1.4rem;
+    height: 1.4rem;
+    clip-path: polygon(20% 0%, 0% 20%, 30% 50%, 0% 80%, 20% 100%, 50% 70%, 80% 100%, 100% 80%, 70% 50%, 100% 20%, 80% 0%, 50% 30%);
+    transform: scale(0);
+    background-color: rgba(198, 235, 198, 0.568);
+
+
+} */
+
+
+
+
+/* estilo dos containers */
 .Container {
     width: 85vw;
     margin: auto;
@@ -24,6 +208,8 @@ body {
 
     padding-bottom: 10rem;
 }
+
+
 
 /* estilo dos botoes */
 .btn {
@@ -78,6 +264,8 @@ body {
     scale: 105%;
 }
 
+
+/* estilo do header */
 .header h1 {
     font-size: 3rem;
 }
@@ -128,8 +316,7 @@ body {
 
 }
 
-.titulo-pagina {}
-
+/* estilo da tabela */
 :root {
     --color-border: 3px solid #e4e4e4;
 }
@@ -146,20 +333,19 @@ table {
     border-top: var(--color-border);
 }
 
-.olho-icone {
-    background-image: url(../img/pontinhos.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 70%;
-    transition: all .2s cubic-bezier(0, .49, 1, .49);
-    filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.486));
+.olho-icone {}
+
+.olho-icone svg {
+    width: 1.3rem;
+
 }
 
 .olho-icone:hover {
     scale: 1.2;
 }
 
-/* Estilo para as células do cabeçalho */
+
+/* Estilo para as células do cabeçalho  da TABELA*/
 th {
     font-weight: 670;
     font-size: 1.1rem;
@@ -237,18 +423,6 @@ tr {
 
 }
 
-.BTN-VER {
-    text-decoration: none;
-    margin: auto;
-    color: black;
-    font-weight: 800;
-    font-size: 1.5rem;
-    /* background-color: #f3c0f8; */
-    padding: .5rem 1rem;
-    border-radius: 1rem;
-
-
-}
 
 
 
@@ -257,8 +431,8 @@ tr {
 
 
 
-/* class do componente adicionar */
 
+/* class do form adicionar */
 
 :root {
 

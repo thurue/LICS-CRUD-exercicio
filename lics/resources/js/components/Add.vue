@@ -21,7 +21,7 @@ export default {
     <Header></Header>
 
     <div id="add-lisc">
-        <h1>adicionar uma licenciatura</h1>
+        <h1>adicionar uma Licitação</h1>
         <form class="form-add" action="/licitacoes" method="POST">
             <div class="form-add-row">
 
@@ -43,21 +43,33 @@ export default {
                 </div>
                 
                 <div class="form-group">
-                    <label for="" class="form-label">modalidade:</label>
-                    <input id="modalidade" name="modalidade" maxlength="255" type="text">
-                </div>
-
-                
-            </div>
-
-            <div class="form-add-row">
-
-
-                <div class="form-group">
                     <label for="" class="form-label">Objeto:</label>
                     <input id="objeto" name="objeto" type="text">
                 </div>
                 
+                
+            </div>
+            
+            <div class="form-add-row">
+                
+                
+                <!-- <div class="form-group">
+                    <label for="" class="form-label">modalidade:</label>
+                    <input id="modalidade" name="modalidade" maxlength="255" type="text">
+                </div>
+                 -->
+                <div class="form-group">
+                    <label for="" class="form-label">modalidade: </label>
+                    <select id="modalidade" name="modalidade"  class="custom-select" >
+                        <option id="modalidade" name="modalidade"  value="Concorrência">Concorrência</option>
+                        <option id="modalidade" name="modalidade"  value="Tomada de Preços">Tomada de Preços</option>
+                        <option id="modalidade" name="modalidade"  value="Convite">Convite</option>
+                        <option id="modalidade" name="modalidade"  value="Concurso">Concurso</option>
+                        <option id="modalidade" name="modalidade"  value="Pregão">Pregão</option>
+                        <option id="modalidade" name="modalidade"  value="Leilão">Leilão</option>
+                    </select>
+                </div>
+
                 <div class="form-group">
                     <label for="" class="form-label">Prioridade: </label>
                     <select id="prioridade" name="prioridade" class="custom-select" >
