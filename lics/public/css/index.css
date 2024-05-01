@@ -48,13 +48,27 @@ body {
 .nav-sidebar svg {
     height: 3.5rem;
 
-    fill: #ffffff;
+    /* fill: #ffffff; */
+
+    fill: aliceblue;
+
     filter: drop-shadow(-10px 0px 10px rgba(0, 0, 0, 0.308));
 
     transition: .4s all;
 
     cursor: pointer;
+
+    overflow: hidden;
+
+    position: relative;
 }
+
+
+/* 
+SVG {
+    fill: linear-gradient(90deg, rgb(114, 23, 105) 0%, rgb(234, 28, 70) 99.88%);
+
+} */
 
 .nav-sidebar svg:hover {
 
