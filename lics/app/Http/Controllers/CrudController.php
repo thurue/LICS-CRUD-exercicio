@@ -17,7 +17,8 @@ class CrudController extends Controller
     }
     public function Card()
     {
-        return view('Card');
+        $lics = Licitacoes::all();
+        return view('Card', ['lics' => $lics]);
     }
     public function add()
     {
@@ -43,7 +44,7 @@ class CrudController extends Controller
     public function show($id_lic)
     {
 
-        // $LicUni = Licitacoes::findOrFail($id_lic, ['id_lic']);
+
         $licUni = Licitacoes::where('id_lic', $id_lic)->firstOrFail();
 
 
@@ -52,11 +53,30 @@ class CrudController extends Controller
         // return redirect('Lics','/lics/' . $licUni->id_lic);
     }
 
+    public function edit($id_lic)
+    {
+
+        $licUni = Licitacoes::where('id_lic', $id_lic)->firstOrFail();
+
+
+        return view('Edit', ['licUni' => $licUni]);
+
+        // return redirect('Lics','/lics/' . $licUni->id_lic);
+    }
+
+
     public function destroy($id_lic)
     {
 
         $licUni = Licitacoes::where('id_lic', $id_lic)->delete();
 
         return redirect('/')->with('msg', 'licitacao deletada com sucesso');
+    }
+
+    public function update(Request $request)
+    {
+        Licitacoes::findOrFail($request->id_lic)->update($request->all());
+
+        return redirect('/');
     }
 }

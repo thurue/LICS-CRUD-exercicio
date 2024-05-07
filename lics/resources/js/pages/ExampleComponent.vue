@@ -46,6 +46,7 @@ import {
     ref,
     onMounted
 } from 'vue';
+
 const props = defineProps({
     dados: {
         type: Array,
@@ -77,6 +78,108 @@ const props = defineProps({
     },
 });
 
+const colunas = ref([{
+                    nome: "id",
+                    checked: true,
+                },
+                {
+                    nome: "nome",
+                    checked: true,
+                },
+                {
+                    nome: "cnpj",
+                    checked: true,
+                },
+                {
+                    nome: "modalidade",
+                    checked: true,
+                },
+                {
+                    nome: "objeto",
+                    checked: true,
+                },
+                {
+                    nome: "fase",
+                    checked: true,
+                },
+                {
+                    nome: "prioridade",
+                    checked: true,
+                },
+                {
+                    nome: "edital",
+                    checked: true,
+                },
+                {
+                    nome: "data_abertura",
+                    checked: true,
+                },
+                {
+                    nome: "created_at",
+                    checked: true,
+                },
+            ]);
+
+            const items = ref([{
+                    nome: "Concorrência",
+                    checked: true
+                },
+                {
+                    nome: "Convite",
+                    checked: true
+                },
+                {
+                    nome: "Concurso",
+                    checked: true
+                },
+                {
+                    nome: "Tomada de Preços",
+                    checked: true
+                },
+                {
+                    nome: "Pregão",
+                    checked: true
+                },
+                {
+                    nome: "Leilão",
+                    checked: true
+                },
+            ]);
+            const Fases = ref([{
+                    numero: -1,
+                    nome: "edicao",
+                    checked: true
+                },
+                {
+                    numero: 0,
+                    nome: "descartada",
+                    checked: true
+                },
+                {
+                    numero: 1,
+                    nome: "processada",
+                    checked: true
+                },
+
+            ]);
+            const Prioridade = ref([{
+                    numero: 1,
+                    nome: "baixa",
+                    checked: true,
+                },
+                {
+                    numero: 2,
+                    nome: "media",
+                    checked: true,
+                },
+                {
+                    numero: 3,
+                    nome: "alta",
+                    checked: true,
+                },
+
+            ]);
+// constantes que serao alteradas durante a exibição de tabela
 const porPageRef = ref(props.porPage);
 const paginaAtual = ref(props.AtualPage);
 
@@ -89,153 +192,47 @@ const totalDePaginas = computed(() =>
 const Iniciotabela = computed(() => (porPageRef.value) * paginaAtual.value);
 const Fimtabela = computed(() => Iniciotabela.value + porPageRef.value);
 
+// variaveis para alterar exibição da janela de abar e des-selecionar todos as propriedades
+const alternar = ref(2)
+const styleJanela = ref('');
+
 // valida todos os dados e trás um array com os objetos que serao exibidos na tabela
 const ArrayColunas = ref([])
 const ArrayModalidade = ref([])
 const ArrayFases = ref([])
 const ArrayPrioridades = ref([])
 
+
 const ItemsDaTabelAtual = computed(() => {
     const objetosComNomesContidos = ref([]);
 
     props.dados.forEach(objeto => {
         if (
-            ArrayModalidade.value.includes(objeto.modalidade) ||
-            ArrayFases.value.includes(objeto.nu_fase) ||
+            ArrayModalidade.value.includes(objeto.modalidade) &&
+            ArrayFases.value.includes(objeto.nu_fase) &&
             ArrayPrioridades.value.includes(objeto.prioridade)) {
             objetosComNomesContidos.value.push(objeto);
         }
     });
 
-    console.log(objetosComNomesContidos.value)
-
     const inicio = Math.max(Iniciotabela.value, 0);
     const fim = Math.min(Fimtabela.value, objetosComNomesContidos.value.length);
     const ArrayComInicioFim = objetosComNomesContidos.value.slice(inicio, fim)
-
+    
     // retorna um array validado por todos os checkers
     return {
         ArrayComInicioFim: ArrayComInicioFim,
+        objetosComNomesContidos: objetosComNomesContidos.value,
         inicio: inicio,
-        fim: fim
+        fim: fim,
     };
 });
 
-const colunas = ref([{
-        nome: "id",
-        checked: true,
-    },
-    {
-        nome: "nome",
-        checked: true,
-    },
-    {
-        nome: "cnpj",
-        checked: true,
-    },
-    {
-        nome: "modalidade",
-        checked: true,
-    },
-    {
-        nome: "objeto",
-        checked: true,
-    },
-    {
-        nome: "fase",
-        checked: true,
-    },
-    {
-        nome: "prioridade",
-        checked: true,
-    },
-    {
-        nome: "edital",
-        checked: true,
-    },
-    {
-        nome: "data_abertura",
-        checked: true,
-    },
-    {
-        nome: "created_at",
-        checked: true,
-    },]);
 
-const items = ref([{
-        nome: "Concorrência",
-        checked: true
-    },
-    {
-        nome: "Convite",
-        checked: true
-    },
-    {
-        nome: "Concurso",
-        checked: true
-    },
-    {
-        nome: "Tomada de Preços",
-        checked: true
-    },
-    {
-        nome: "Pregão",
-        checked: true
-    },
-    {
-        nome: "Leilão",
-        checked: true
-    },
-]);
-const Fases = ref([{
-        numero: -1,
-        nome: "edicao",
-        checked: true
-    },
-    {
-        numero: 0,
-        nome: "descartada",
-        checked: true
-    },
-    {
-        numero: 1,
-        nome: "processada",
-        checked: true
-    },
 
-]);
-const Prioridade = ref([{
-        numero: 1,
-        nome: "baixa",
-        checked: true,
-    },
-    {
-        numero: 2,
-        nome: "media",
-        checked: true,
-    },
-    {
-        numero: 3,
-        nome: "alta",
-        checked: true,
-    },
 
-]);
 
-onMounted(() => {
-    CheckItems();
-    CheckColunas();
-    alternarJanela();
-});
-
-function CheckColunas() {
-    colunas.value.forEach(item => {
-        if (item.checked) {
-            ArrayColunas.value.push(item.nome);
-            console.log(ArrayColunas, 'aquii')
-        }
-    });
-}
+// cheks de propriedades exibidas na tabela
 function CheckItems() {
     items.value.forEach(item => {
         if (item.checked) {
@@ -254,29 +251,25 @@ function CheckItems() {
         }
     });
 }
-
 function unCheckItems() {
-    
     items.value.forEach(item => {
         if (item.checked) {
             ArrayModalidade.value = [];
         }
     });
-    
+
     Fases.value.forEach(item => {
         if (item.checked) {
             ArrayFases.value = []
         }
     });
-    
+
     Prioridade.value.forEach(item => {
         if (item.checked) {
             ArrayPrioridades.value = []
         }
     });
 }
-const alternar = ref(2)
-
 function alternarFunction() {
     if (alternar.value == 2) {
         unCheckItems()
@@ -288,7 +281,7 @@ function alternarFunction() {
     }
 }
 
-const styleJanela = ref('some-janela');
+// alterna classe no card de colunas
 function alternarJanela() {
     if (styleJanela.value == 'some-janela') {
         return styleJanela.value = ''
@@ -297,20 +290,30 @@ function alternarJanela() {
         return styleJanela.value = 'some-janela'
     }
 }
-
-
+// deixa todas as colunas marcadas para serem exibidas
+function CheckColunas() {
+    colunas.value.forEach(item => {
+        if (item.checked) {
+            ArrayColunas.value.push(item.nome);
+            console.log(ArrayColunas, 'aquii')
+        }
+    });
+}
+onMounted(() => {
+    CheckItems();
+    CheckColunas();
+    alternarJanela();
+});
 </script>
 
 <template>
-    <!-- <Header></Header> -->
-<div class="root">
+    <div class="root">
+        <div class="side-bar">
 
-    <div class="side-bar">
-
-        <div class="nav-sidebar">
-            <a href="/add">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                    <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="url(#meuGradiente)" />
+            <div class="nav-sidebar">
+                <a href="/add">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" fill="url(#meuGradiente)" />
                     <linearGradient id="meuGradiente" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" style="stop-color:rgb(114, 23, 105)" />
                         <stop offset="100%" style="stop-color:rgb(234, 28, 70)" />
@@ -374,31 +377,30 @@ function alternarJanela() {
                     <path d="M32 448c-17.7 0-32 14.3-32 32s14.3 32 32 32l96 0c53 0 96-43 96-96l0-306.7 73.4 73.4c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0l-128 128c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 109.3 160 416c0 17.7-14.3 32-32 32l-96 0z" /></svg>
             </div>
 
-            
-        
         </div>
 
     </div>
 
     <div class="Container">
-
+        <div class="example-container-header"></div>
         <div class="headline-table">
             <h1 class="headline-titulo-pagina">LICITAÇÕES</h1>
             <div class="right-part-headline">
 
                 <div class="numero-de-itens-atualmente">
-                    <p>{{ ItemsDaTabelAtual.inicio }} - {{ ItemsDaTabelAtual.fim }} items de {{props.dados.length}}</p>
+                    <p>{{ ItemsDaTabelAtual.inicio }} - {{ ItemsDaTabelAtual.fim }} items de {{ItemsDaTabelAtual.objetosComNomesContidos.length}}</p>
 
                     <svg v-on:click="() => {  if (paginaAtual > 0) {paginaAtual--} }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                         <path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" /></svg>
 
-                    <svg v-on:click="() => { if (paginaAtual + 1 < totalDePaginas) {paginaAtual++} }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <svg v-on:click="() => { if (paginaAtual + 1 < ItemsDaTabelAtual.objetosComNomesContidos.length/10) {paginaAtual++} }" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" /></svg>
                 </div>
 
-                <div class="btn adicionar adicionar-tabela div-button-colunas">
-                    <a @click="alternarJanela()">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 64V416H224V160H64zm384 0H288V416H448V160z"/></svg>
+                <div class=" btn adicionar adicionar-tabela div-button-colunas">
+                    <a @click="alternarJanela()" class="btn adicionar adicionar-tabela">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 64V416H224V160H64zm384 0H288V416H448V160z" /></svg>
                     </a>
 
                     <div :class="'janela-colunas ' + styleJanela">
@@ -409,28 +411,27 @@ function alternarJanela() {
                     </div>
                 </div>
 
-
+                <a href="/add">
                 <div class="btn adicionar adicionar-tabela">
-                    <a href="/add">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                             <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
 
                         </svg>
-                    </a>
-                    <h1>NOVO</h1>
-                </div>
+                        <h1>NOVO</h1>
+                    </div>
+                </a>
             </div>
         </div>
 
         <table class="TABELA">
             <thead class="cabecalho-TABELA">
-                <tr class="cabecalho-TABELA-unidade"  >
-                    
+                <tr class="cabecalho-TABELA-unidade">
+
                     <!-- <th v-for="(dado, index) in ArrayColunas" id="primeira-coluna">{{dado}}</th> -->
                     <th id="primeira-coluna">opçoes</th>
-                    <th class="col-aparece" v-if="ArrayColunas.includes('id')" >id</th>
+                    <th class="col-aparece" v-if="ArrayColunas.includes('id')">id</th>
                     <th class="col-some" v-else>id</th>
-                    
+
                     <th class="col-aparece" v-if="ArrayColunas.includes('nome')">nome</th>
                     <th class="col-some" v-else>nome</th>
 
@@ -455,8 +456,8 @@ function alternarJanela() {
                     <th class="col-aparece" v-if="ArrayColunas.includes('data_abertura')">data_abertura</th>
                     <th class="col-some" v-else>data_abertura</th>
 
-                    <th class="col-aparece" v-if="ArrayColunas.includes('created_at')">created_at</th> 
-                    <th class="col-some" v-else>created_at</th> 
+                    <th class="col-aparece" v-if="ArrayColunas.includes('created_at')">created_at</th>
+                    <th class="col-some" v-else>created_at</th>
 
                 </tr>
             </thead>
@@ -471,49 +472,41 @@ function alternarJanela() {
                         </a>
                     </td>
 
-                    <td class="col-aparece" v-if="ArrayColunas.includes('id')" >{{dado.id_lic}}.</td>
+                    <td class="col-aparece" v-if="ArrayColunas.includes('id')">{{dado.id_lic}}.</td>
                     <td class="col-some" v-else>{{dado.id_lic}}.</td>
 
-
-                    <td class="col-aparece" v-if="ArrayColunas.includes('nome')" >{{dado.nome_licitador}}</td>
+                    <td class="col-aparece" v-if="ArrayColunas.includes('nome')">{{dado.nome_licitador}}</td>
                     <td class="col-some" v-else>{{dado.nome_licitador}}</td>
 
+                    <td class="col-aparece" v-if="ArrayColunas.includes('cnpj')">{{formatCnpj(dado.cnpj_licitador)}}</td>
+                    <td class="col-some" v-else>{{formatCnpj(dado.cnpj_licitador)}}</td>
 
-                    <td class="col-aparece" v-if="ArrayColunas.includes('cnpj')" >{{formatCnpj(dado.cnpj_licitador)}}</td>
-                    <td class="col-some" v-else >{{formatCnpj(dado.cnpj_licitador)}}</td>
+                    <td class="col-aparece" v-if="ArrayColunas.includes('modalidade')">{{dado.modalidade}}</td>
+                    <td class="col-some" v-else>{{dado.modalidade}}</td>
 
-
-                    <td class="col-aparece" v-if="ArrayColunas.includes('modalidade')" >{{dado.modalidade}}</td>
-                    <td class="col-some" v-else >{{dado.modalidade}}</td>
-
-
-                    <td class="col-aparece" v-if="ArrayColunas.includes('objeto')" >{{dado.objeto}}</td>
+                    <td class="col-aparece" v-if="ArrayColunas.includes('objeto')">{{dado.objeto}}</td>
                     <td class="col-some" v-else>{{dado.objeto}}</td>
 
-
-                    <td  class= "col-aparece fase pri-edicao" v-if="dado.nu_fase == -1 && ArrayColunas.includes('fase')">
+                    <td class="col-aparece fase fase-edicao" v-if="dado.nu_fase == -1 && ArrayColunas.includes('fase')">
                         <p>edicao</p>
                     </td>
-                    <td  class="col-some fase pri-edicao" v-else>
+                    <td class="col-some fase fase-edicao" v-else>
                         <p>edicao</p>
                     </td>
 
-
-                    <td class="col-aparece fase pri-descartado" v-if="dado.nu_fase == 0 && ArrayColunas.includes('fase')">
+                    <td class="col-aparece fase fase-descartado" v-if="dado.nu_fase == 0 && ArrayColunas.includes('fase')">
                         <p>descartado</p>
                     </td>
-                    <td class="col-some fase pri-descartado" v-else>
+                    <td class="col-some fase fase-descartado" v-else>
                         <p>descartado</p>
                     </td>
 
-
-                    <td class="col-aparece fase pri-processada" v-if="dado.nu_fase == 1 && ArrayColunas.includes('prioridade')">
+                    <td class="col-aparece fase fase-processada" v-if="dado.nu_fase == 1 && ArrayColunas.includes('fase')">
                         <p>processada</p>
                     </td>
-                    <td class="col-some fase pri-processada" v-else>
+                    <td class="col-some fase fase-processada" v-else>
                         <p>processada</p>
                     </td>
-                    
 
                     <td class="col-aparece prioridade pri-baixa" v-if="dado.prioridade == 1 && ArrayColunas.includes('prioridade')">
                         <p>baixa</p>
@@ -522,7 +515,6 @@ function alternarJanela() {
                         <p>baixa</p>
                     </td>
 
-
                     <td class="col-aparece prioridade pri-media" v-if="dado.prioridade == 2 && ArrayColunas.includes('prioridade')">
                         <p>media</p>
                     </td>
@@ -530,14 +522,12 @@ function alternarJanela() {
                         <p>media</p>
                     </td>
 
-
                     <td class="col-aparece prioridade pri-alta" v-if="dado.prioridade >= 3 && ArrayColunas.includes('prioridade')">
                         <p>alta</p>
                     </td>
                     <td class="col-some prioridade pri-alta" v-else>
                         <p>alta</p>
                     </td>
-
 
                     <td class="col-aparece" v-if="ArrayColunas.includes('edital')">{{dado.nu_edital}}</td>
                     <td v-else class="col-some">{{dado.nu_edital}}</td>
@@ -551,7 +541,6 @@ function alternarJanela() {
                 </tr>
             </tbody>
         </table>
-
         <div class="bottom-table">
             <div class="controlador-de-pagina" v-if="totalDePaginas<4" v-for="(item, index) in totalDePaginas" @click="()=>{paginaAtual = index}">
                 <button>{{ index + 1 }}</button>
@@ -574,7 +563,7 @@ function alternarJanela() {
 
                 <div class="btn-controlador" @click="()=>{ paginaAtual = totalDePaginas -1}" v-if="paginaAtual + 1 != totalDePaginas">{{totalDePaginas}} </div>
 
-                <div class="btn-controlador" v-on:click="() => {   if (paginaAtual + 1 < totalDePaginas ) {paginaAtual++}  }">
+                <div class="btn-controlador" v-on:click="() => {   if (paginaAtual + 1 < ItemsDaTabelAtual.objetosComNomesContidos.length/10 ) {paginaAtual++}  }">
                     <svg class="controlador-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                         <path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z" /></svg>
                 </div>

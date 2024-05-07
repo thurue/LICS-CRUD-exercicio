@@ -467,6 +467,57 @@ input[type=checkbox] {
 
 }
 
+
+.prioridade p {
+    text-align: center;
+    padding: 1rem 0rem;
+    width: 50%;
+    border-radius: 1rem;
+    margin: auto;
+    font-weight: 700;
+}
+
+.fase p {
+    text-align: center;
+    padding: 1rem .6rem;
+    border-radius: 1rem;
+    margin: auto;
+    font-weight: 700;
+}
+
+.pri-baixa p {
+    background-color: rgba(0, 128, 0, 0.185);
+    color: rgba(0, 128, 0);
+}
+
+.pri-media p {
+    background-color: rgba(255, 255, 0, 0.219);
+    color: rgb(141, 141, 59);
+}
+
+.pri-alta p {
+    background-color: rgba(255, 0, 0, 0.199);
+    color: rgba(255, 0, 0);
+}
+
+
+.fase-edicao p {
+    background-color: rgba(0, 204, 255, 0.233);
+    color: rgb(0, 114, 143);
+}
+
+.fase-descartado p {
+    background-color: rgba(255, 145, 0, 0.205);
+    color: rgb(255, 145, 0);
+}
+
+.fase-processada p {
+    background-color: rgba(153, 153, 153, 0.267);
+    color: rgb(133, 133, 133);
+}
+
+
+
 .cabecalho-TABELA-unidade {
     background-color: #f8fafc;
     border-radius: 1rem;
@@ -530,10 +581,14 @@ input[type=checkbox] {
     fill: aliceblue;
 }
 
+.div-button-colunas {
+    background: transparent;
+}
+
 .janela-colunas {
     overflow: hidden;
     position: absolute;
-    top: 5.5vh;
+    top: 7vh;
 
     border-radius: var(--borderRadius);
 
@@ -546,11 +601,13 @@ input[type=checkbox] {
     flex-direction: column;
     gap: 1rem;
     height: 760%;
+    scale: 1;
 
-    transition: all .5s;
+    transition: all .5s cubic-bezier(.42, -0.03, .41, 1.44);
 }
 
 .some-janela {
+    top: -10px;
     height: 0px;
     scale: 0;
 }
@@ -637,10 +694,33 @@ input[type=checkbox] {
 
 }
 
+.container-Form-Add {
+
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background: linear-gradient(90deg, #781767, #DE1B49);
+
+}
+
+.div-personagem {
+    width: 50vw;
+    height: 100vh;
+    position: relative;
+}
+
+.div-personagem img {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    zoom: 1.3;
+    transform: translate(-50%, 0%);
+}
+
 #add-lisc {
     zoom: 200%;
 
-    width: 80%;
+    width: 50%;
 
     margin: auto;
 
@@ -653,6 +733,13 @@ input[type=checkbox] {
     align-items: center;
 }
 
+#add-lisc h1 {
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
 
 .form-add {
     display: flex;
@@ -660,6 +747,13 @@ input[type=checkbox] {
     gap: 3rem;
 
     margin: auto;
+}
+
+
+.form-label {
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 600;
 }
 
 .form-group {
@@ -677,23 +771,32 @@ input[type=checkbox] {
 .custom-select,
 .form-group input {
 
-    border-radius: .4rem;
-    padding: .3rem;
-    border: black solid 1px;
+    border-radius: .9rem;
+    padding: .5rem 1rem;
+    border: transparent;
+    outline: none;
+    background-color: hsla(0, 0%, 100%, 0.3);
 
-    transition: border .1s;
+    color: aliceblue;
+
+    transition: all .5s;
 }
 
 .custom-select:hover {
     cursor: pointer;
 }
 
+.custom-select option {
+
+    border-radius: 2rem;
+    color: #781767;
+    background-color: #ffffff;
+}
+
 .custom-select:focus,
 .form-group input:focus {
-
-    border-radius: .4rem;
-    padding: .3rem;
-    border: black solid 3px;
+    background-color: hsla(0, 0%, 100%, 0.556);
+    outline: none;
 }
 
 .form-add-row {
@@ -737,12 +840,18 @@ input[type=checkbox] {
 
     display: inline-block;
     border: solid rgba(0, 0, 0, 0.137) 1px;
-    padding: 7px 20px;
+    padding: 12px 25px;
     border-radius: 7px;
-    border-bottom: solid 2px #087fbe;
+    border-bottom: solid 2px #b11956;
 
-    box-shadow: -5px -5px 10px rgba(0, 0, 0, 0.329);
+    box-shadow: inner -5px -5px 10px rgba(0, 0, 0, 0.329);
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.308);
+    background-color: #fff;
+
+
     zoom: 150%;
+    color: #000;
+
 
     width: 60%;
 
@@ -751,15 +860,113 @@ input[type=checkbox] {
 .licitacao-individual {
     flex-wrap: wrap;
     align-items: center;
+    background: linear-gradient(90deg, #781767, #DE1B49);
+    width: auto;
+    color: #FFF;
+
 }
 
 .titulo-info-individual span {
 
-    color: #087fbe;
+    color: #b11956;
     font-weight: 600;
 
 }
 
 .form-delete {
     display: inline-block;
+}
+
+.editar-individual,
+.excluir-individual {
+    margin: 5px;
+    zoom: 120%;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    background-color: #fff;
+    color: green;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.329);
+    transition: all .3s;
+    font-size: 1.3rem;
+}
+
+.editar-individual:hover,
+.excluir-individual:hover {
+    zoom: 120%;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+    background-color: green;
+    color: #fff;
+    box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.329);
+
+}
+
+.excluir-individual {
+
+    color: red;
+}
+
+.excluir-individual:hover {
+    zoom: 120%;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 68, 68);
+    box-shadow: inset 15px 15px 20px #0000008c;
+}
+
+
+
+.containerCards {
+    background: linear-gradient(90deg, #781767, #DE1B49);
+    width: auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.Cards {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: start;
+    padding: 2rem;
+    height: 18rem;
+    border-radius: 1rem;
+    box-shadow: inset 10px 10px 10px rgba(0, 0, 0, 0.212);
+    background-color: #fff;
+
+    color: #000;
+}
+
+.Cards span {
+    color: #ff1100;
+}
+
+
+.Card-media {
+    border: 5px solid rgba(0, 128, 0, 0.747);
+}
+
+.Card-baixa {
+    border: 5px solid rgba(255, 255, 183, 0.781);
+}
+
+.Card-alta {
+    border: .5rem solid rgba(255, 154, 154, 0.767);
+}
+.cardNone {
+    display: none;
 }
